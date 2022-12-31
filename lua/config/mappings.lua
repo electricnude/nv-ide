@@ -104,7 +104,7 @@ vim.keymap.set('n', '<C-p>', '<cmd>tabprevious<CR>', {silent = true, noremap = t
 vim.keymap.set('n', '<C-c>', '<cmd>tabnew<CR>', {silent = true, noremap = true})
 
 
-
+-- via: https://gist.github.com/joelpalmer/9db3f1cdfd463daa6d7c614ae1618fa6
 vim.cmd([[
 " -- コマンドラインモード: %$ でカレントファイルのフォルダパスに展開
 cnoremap <expr> %$ getcmdtype() == ':' ? expand('%:h').'/' : '%%'
