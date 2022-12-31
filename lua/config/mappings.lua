@@ -104,3 +104,12 @@ vim.keymap.set('n', '<C-p>', '<cmd>tabprevious<CR>', {silent = true, noremap = t
 vim.keymap.set('n', '<C-c>', '<cmd>tabnew<CR>', {silent = true, noremap = true})
 
 
+
+vim.cmd([[
+" -- コマンドラインモード: %$ でカレントファイルのフォルダパスに展開
+cnoremap <expr> %$ getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" -- コマンドラインモード: %% でカレントファイルのフルパスに展開
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p') : '%%'
+]])
+
