@@ -1,3 +1,7 @@
+
+
+
+
 -- <F1> help
 -- <F2> vim-codepainter
 -- <F3> vim-codepainter navigate
@@ -88,3 +92,15 @@ vim.keymap.set("n", "<leader>dcc", "<cmd>lua require'telescope'.extensions.dap.c
 vim.keymap.set("n", "<leader>dlb", "<cmd>lua require'telescope'.extensions.dap.list_breakpoints{}<CR>", {silent = true, noremap = true})
 vim.keymap.set("n", "<leader>dv", "<cmd>lua require'telescope'.extensions.dap.variables{}<CR>", {silent = true, noremap = true})
 vim.keymap.set("n", "<leader>df", "<cmd>lua require'telescope'.extensions.dap.frames{}<CR>", {silent = true, noremap = true})
+
+
+
+-- Tabs
+-- via: https://joker1007.hatenablog.com/entry/2022/09/03/172957
+-- keymapの設定はvim.keymap.set('n', 'L', '<cmd>tabnext<CR>', {silent = true})の様に書く
+-- これはnnoremap <silent> L :tabnext<cr>を意味する
+vim.keymap.set('n', '<C-n>', '<cmd>tabnext<CR>', {silent = true, noremap = true})
+vim.keymap.set('n', '<C-p>', '<cmd>tabprevious<CR>', {silent = true, noremap = true})
+vim.keymap.set('n', '<C-c>', '<cmd>tabnew<CR>', {silent = true, noremap = true})
+
+
