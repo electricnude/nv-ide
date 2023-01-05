@@ -97,11 +97,16 @@ vim.keymap.set("n", "<leader>df", "<cmd>lua require'telescope'.extensions.dap.fr
 
 -- Tabs
 -- via: https://joker1007.hatenablog.com/entry/2022/09/03/172957
--- keymapの設定はvim.keymap.set('n', 'L', '<cmd>tabnext<CR>', {silent = true})の様に書く
--- これはnnoremap <silent> L :tabnext<cr>を意味する
-vim.keymap.set('n', '<C-n>', '<cmd>tabnext<CR>', {silent = true, noremap = true})
-vim.keymap.set('n', '<C-p>', '<cmd>tabprevious<CR>', {silent = true, noremap = true})
+-- __ vim.keymap.set('n', '<C-n>', '<cmd>tabnext<CR>', {silent = true, noremap = true})
+-- __ vim.keymap.set('n', '<C-p>', '<cmd>tabprevious<CR>', {silent = true, noremap = true})
+-- __ vim.keymap.set('n', '<C-c>', '<cmd>tabnew<CR>', {silent = true, noremap = true})
+
+vim.keymap.set('n', '<C-n>', '<cmd>bnext<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-p>', '<cmd>bprevious<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-q>', '<cmd>b#<cr><cmd>bd#<cr>', { noremap = true })
 vim.keymap.set('n', '<C-c>', '<cmd>tabnew<CR>', {silent = true, noremap = true})
+vim.keymap.set('n', '<C-S-n>', '<cmd>tabnext<CR>', {silent = true, noremap = true})
+vim.keymap.set('n', '<C-S-p>', '<cmd>tabprevious<CR>', {silent = true, noremap = true})
 
 
 -- via: https://gist.github.com/joelpalmer/9db3f1cdfd463daa6d7c614ae1618fa6

@@ -1,4 +1,8 @@
 -- Global
+
+-- change mapleader
+vim.g.mapleader = ' '
+
 -- vim.opt.fillchars = { vert = ' ' }
 vim.opt.showtabline = 2
 vim.opt.mouse = 'a'
