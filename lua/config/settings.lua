@@ -27,25 +27,37 @@ vim.opt.title = true
 vim.opt.encoding = 'UTF-8'
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.clipboard = 'unnamedplus'
+vim.opt.list = true
 vim.opt.listchars = { tab = ">>>", trail = "·", precedes = "←", extends = "→",eol = "↲", nbsp = "␣" }
+-- vim.opt.listchars = { tab = ">>>", trail = "·", precedes = "←", extends = "→",eol = "↴", nbsp = "␣" }
+
+-- vim.opt.listchars:append "eol:↴"
+
+
+-- good page: https://homaju.hatenablog.com/entry/2022/06/10/081205
+vim.opt.helplang = 'ja', 'en'
+
+
 vim.opt.laststatus = 3
 vim.opt.timeoutlen = 500
 vim.opt.splitkeep = 'screen'
+
 -- Buffer
 vim.opt.fileformat = 'unix'
+vim.opt.fileformats = 'unix', 'mac', 'dos'
 vim.opt.tabstop = 2
-vim.opt.spelllang = 'it'
+vim.opt.spelllang = 'en'
 vim.opt.softtabstop = 2
 vim.opt.swapfile = false
 vim.opt.undofile = false
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
--- Window
+
+-- -- Window
 vim.opt.number = true
 vim.opt.colorcolumn = "+1"
 vim.opt.foldmethod = 'indent'
 vim.opt.foldlevel = 1
-vim.opt.list = false
 vim.opt.foldnestmax = 10
 vim.opt.signcolumn = 'yes'
 vim.opt.relativenumber = true
@@ -66,3 +78,39 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank()
   end,
 })
+
+
+
+vim.cmd([[
+" via: https://zenn.dev/kawarimidoll/articles/450a1c7754bde6
+
+
+" Highlight extra whitespaces
+" https://zenn.dev/kawarimidoll/articles/450a1c7754bde6
+" u00A0 ' ' no-break space
+" u2000 ' ' en quad
+" u2001 ' ' em quad
+" u2002 ' ' en space
+" u2003 ' ' em space
+" u2004 ' ' three-per em space
+" u2005 ' ' four-per em space
+" u2006 ' ' six-per em space
+" u2007 ' ' figure space
+" u2008 ' ' punctuation space
+" u2009 ' ' thin space
+" u200A ' ' hair space
+" u200B '​' zero-width space
+" u3000 '　' ideographic (zenkaku) space
+"
+" colors:
+" - #2c2d27
+autocmd VimEnter * ++once
+      \ call matchadd('ExtraWhitespace', "[\u00A0\u2000-\u200B\u3000]")
+      \ | highlight default ExtraWhitespace term=underline ctermfg=0 ctermbg=7 guifg=#ffffff guibg=#1d2021
+
+
+]])
+
+
+-- vim.opt.listchars:append({ trail = "✚" })
+

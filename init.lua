@@ -14,3 +14,7 @@ require('config.filetype')
 require('config.lsp')
 -- Keymap
 require('config.mappings')
+
+
+require('config.own_at_last')
+
